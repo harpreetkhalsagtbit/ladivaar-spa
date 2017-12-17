@@ -22,6 +22,7 @@ html, body {
 body {
     margin: 0;
     overflow: hidden;
+    background-color: #32313B;
 }
 
 
@@ -44,6 +45,26 @@ body {
 	align-items: center;
 }
 
+.punjabi_title {
+	color:#EC3F8C;
+}
+
+.pun_ladivaar {
+	color:#EC3F8C;
+}
+
+.english_title {
+	color:#39B1C6;
+}
+
+.eng_ladivaar {
+	color:#EC3F8C;
+}
+
+.dash {
+	color:#39B1C6;
+}
+
 h1 {
     color: #F7941E;
     padding: 5px;
@@ -63,38 +84,77 @@ h4 {
 .tatkra {
 	position: absolute;
 	top: 0px;
-	left: 30%;
+	left: 95%;
 	height: 100%;
-	overflow-y: scroll;
 	width:70%;
 	float: left;
 	display: flex;
 	background-color: yellow;
+    transition: all ease 1.5s;
 }
 
 .tatkra_handle {
-	background-color: green;
-	/*height: 100%;*/
-	width: 5%;
+	background-color: #25242C;
+	width: 8%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .tatkra:hover{
 	background-color: pink;
 	left:30%;
-    transition: all ease 0s;
+    transition: all ease 1.5s;
 }
 
 .tatkra_body {
 	background-color: #e8e8e8;
 	width: 95%;
+	overflow-y: scroll;
 	display:flex;
 	flex-direction: column;
+}
+
+.primaryItem {
+	align-self: center;	
+}
+
+#angNoText {
+	border:none;
+	background-color: #8e44ad;
+	height: 20px;
+	width: 100px;
+	font-size: 16px;
+	color: rgba(255,255,255,0.6);
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+	text-align: center;
+}
+
+#angNoText::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	font-size: 16px;
+	color: rgba(255,255,255,0.6);
+}
+#angNoText::-moz-placeholder { /* Firefox 19+ */
+	font-size: 16px;
+	color: rgba(255,255,255,0.6);
+}
+#angNoText:-ms-input-placeholder { /* IE 10+ */
+	font-size: 16px;
+	color: rgba(255,255,255,0.6);
+}
+#angNoText:-moz-placeholder { /* Firefox 18- */
+	font-size: 16px;
+	color: rgba(255,255,255,0.6);
 }
 
 .tatkra_list {
 	width: 100%;
 	/*height: auto;*/
 	background-color: #e8e8e8;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .goToAngNoContainer {
@@ -118,21 +178,18 @@ h4 {
 	width: 100%;
 	height: 70px;
 	display: flex;
-	justify-content: center;
-}
-.tatkra_item_header_background {
-	width: 100%;
-	height: 35px;
-    margin-top: 35px;
-    border-top-right-radius: 2px;
-	border-top-left-radius: 2px;
 	z-index: 1;
+	justify-content: center;
+	background: linear-gradient(transparent 50%, #8e44ad 50%);
 }
 
 .tatkra_item_content {
 	width: 100%;
 	border-bottom-right-radius: 2px;
 	border-bottom-left-radius: 2px;
+}
+
+.tatkra_item_header:hover + .tatkra_item_content {
 	box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.5);
 }
 
@@ -145,6 +202,10 @@ h4 {
 	align-items: center;
 }
 
+.tatkra_item_content:hover {
+	box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.5);
+}
+
 .tatkra_item_footer {
 	width: 100%;
 	height: 30px;
@@ -153,6 +214,7 @@ h4 {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 .item_circle {
@@ -160,10 +222,77 @@ h4 {
     height: 64px;
     border-radius: 50%;
     overflow: hidden;
-    position: absolute;
     z-index: 1;
     border: 3px solid rgba(255,255,255,0.3)
 }
+
+
+/*
+animation button - breathing
+*/
+
+#breathing-button {
+    width: 50px;
+    border: 1px solid #d1d1d1;
+    -webkit-animation: breathing 1.2s ease-out infinite normal;
+    animation: breathing 1.2s ease-out infinite normal;
+    font-size: 42px;
+    font-weight: 600;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 3px;
+    text-align: center;    
+    }
+
+
+@-webkit-keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
 
 .dark-blue {
     background-color: #34495e;
