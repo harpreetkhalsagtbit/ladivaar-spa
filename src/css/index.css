@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+	font-family: 'Dejaweb';
+	src: url('../assets/fonts/NotoSansGurmukhi-Regular.ttf');
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+}
+
+.flex-container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Dejaweb'
+}
+.row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1 {
+    color: #F7941E;
+    padding: 5px;
+    margin: 10px;
+    font-weight: 600;
+    font-size: 60PX;
+}
+
+h4 {
+    color: #F7941E;
+    padding: 5px;
+    margin: 10px;
+    font-weight: 600;
+    font-size: 42PX;
+}
+
+.tatkra {
+	position: fixed;
+	top: 0px;
+	left: 30%;
+	height: 100%;
+	width:70%;
+	float: left;
+	display: flex;
+	background-color: yellow;
+}
+
+.tatkra_handle {
+	background-color: green;
+	height: 100%;
+	width: 5%;
+}
+
+.tatkra:hover{
+	background-color: pink;
+	left:30%;
+    transition: all ease 0s;
+}
+
+.tatkra_body {
+	background-color: red;
+	height: 100%;
+	width: 95%;
+	display:flex;
+}
+
+.angNoContainer {
+	display: flex;
+	width: 100%;
+	height: 70px;
+	background-color: rgb(62, 80, 180);
+	justify-content: center;
+	align-items: center;
+}
+
+.angNoWrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+	height: 50px;
+	border: none;
+	/*background-color: rgba(255, 255, 255, 0.16)*/
+}
+
+#goToAngNo::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(255, 255, 255, 0.16);
+}
+#goToAngNo::-moz-placeholder { /* Firefox 19+ */
+  color: rgba(255, 255, 255, 0.16);
+}
+#goToAngNo:-ms-input-placeholder { /* IE 10+ */
+  color: rgba(255, 255, 255, 0.16);
+}
+#goToAngNo:-moz-placeholder { /* Firefox 18- */
+  color: rgba(255, 255, 255, 0.16);
+}
+
+#goToAngNo {
+	height:50px;
+	font-size: 32px;
+	border: none;
+	background-color: rgba(255, 255, 255, 0.16)
+}
+
+
+
+
+
