@@ -69,9 +69,10 @@ $( document ).ready(function() {
                     })
                 } else {
                     _paragraphsStr = baani[i].baani_content.replace(/([੦-੯]+॥){2,}/g, function($0) {
-                        return $0 + "\n"
+                        return $0 + ""
                     })
                 }
+
                 var _paragraphsArr = _paragraphsStr.trim().split(/\n/);
                 if (_paragraphsArr && _paragraphsArr.length) {
                     for (var paragraph = 0; paragraph < _paragraphsArr.length; paragraph++) {
@@ -92,6 +93,7 @@ $( document ).ready(function() {
                     }
                 }
             }
+
             _htmlString = "<div class='angContainer'><div class='baaniFormatting'>" + _paragraphStringHTMLArr.join("</div><div class='baaniFormatting'>") + "</div></div>"
             // console.log(_htmlString)
             $(element).html(_htmlString)
