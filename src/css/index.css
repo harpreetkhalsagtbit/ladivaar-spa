@@ -308,12 +308,14 @@ li {
   position: absolute;
   top:47%;
   left:1%;
+  cursor: pointer;
 }
 
 .rightHandle {
   position: absolute;
   top:47%;
   left:95%;
+  cursor: pointer;
 }
 /*
 animation button - breathing
