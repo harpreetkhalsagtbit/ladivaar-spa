@@ -4,15 +4,19 @@ $( document ).ready(function() {
     $("breathing-button").on("mousein", function() {
         window.location.hash="tatkra";
     })
+    $(".toolbar").hide()
+    $(".rightHandle").hide()
+    $(".leftHandle").hide()
+
     setTimeout(function() {
         var ang = window.location.hash.match(/\d{1,4}$/);
         if(ang && ang.length) {
             ang--;
             window.angNo = ang;
-            console.log(window.angNo)
+
             var _angData = data[window.angNo];
             var _baani = _angData.baani
-                // baani_container
+            // baani_container
             let center = $(".list-group-center-on-next").length?$(".list-group-center-on-next"):$(".list-group-center-on-prev")
             ladivaarGenerator(_baani, center, false)
             // $(".title").html("ਅੰਗ - " + (window.angNo + 1) + "/1430")
@@ -44,6 +48,18 @@ $( document ).ready(function() {
         }
         $(".angNoInput").val("")
     })
+    
+    $(".leftHandle").on("click", function() {
+        // dont confuse with swipe right - swipe to right means
+        // move prev
+        swipeRight();
+    })
+
+    $(".rightHandle").on("click", function() {
+        // dont confuse with swipe left - swipe to left means
+        // move next
+        swipeLeft()
+    })
 
     $(window).on('hashchange load', function() {
         console.log("haschange", window.location.hash)
@@ -52,13 +68,19 @@ $( document ).ready(function() {
         if (window.location.hash == "") {
             $(".tatkra").removeClass("tatkra_hover")
             $(".guru_granth_sahib_baani").hide();
+            $(".rightHandle").hide();
+            $(".leftHandle").hide();
         } else if (window.location.hash == "#tatkra") {
             $(".tatkra").addClass("tatkra_hover")
             $(".guru_granth_sahib_baani").hide();
+            $(".rightHandle").hide();
+            $(".leftHandle").hide();        
         } else if (window.location.hash.match(/\d{1,4}$/)) {
             $(".tatkra").removeClass("tatkra_hover")
             $(".guru_granth_sahib_baani").show();
-            var ang = window.location.hash.match(/\d{1,4}$/);
+            $(".rightHandle").show()
+            $(".leftHandle").show()
+                    var ang = window.location.hash.match(/\d{1,4}$/);
             if(ang && ang.length) {
                 ang--;
                 window.angNo = ang;
@@ -143,7 +165,11 @@ $( document ).ready(function() {
     }
     
     var resim = $(".swipe-gesture");
-    resim.hammer().on("swipeleft", function(ev) {
+    resim.hammer().on("swipeleft", swipeLeft);
+
+    resim.hammer().on("swiperight", swipeRight);
+
+    function swipeLeft(ev) {
         var center = $(".list-group-center-on-next").length?$(".list-group-center-on-next"):$(".list-group-center-on-prev")
         var left = $(".list-group-left-on-next").length?$(".list-group-left-on-next"):$(".list-group-left-on-prev")
         var right = $(".list-group-right-on-next").length?$(".list-group-right-on-next"):$(".list-group-right-on-prev")
@@ -160,11 +186,9 @@ $( document ).ready(function() {
             
             // $("#angNo").html("ਅੰਗ - " + (window.angNo + 1) + "/1430")
         }, 600)
+    }
 
-
-    });
-
-    resim.hammer().on("swiperight", function(ev) {
+    function swipeRight(ev) {
         var center = $(".list-group-center-on-next").length?$(".list-group-center-on-next"):$(".list-group-center-on-prev")
         var left = $(".list-group-left-on-next").length?$(".list-group-left-on-next"):$(".list-group-left-on-prev")
         var right = $(".list-group-right-on-next").length?$(".list-group-right-on-next"):$(".list-group-right-on-prev")
@@ -178,7 +202,5 @@ $( document ).ready(function() {
             window.angNo--;
             window.location.hash="ang/" + (window.angNo + 1)
         }, 600)
-});
-
-
+    }
 });
