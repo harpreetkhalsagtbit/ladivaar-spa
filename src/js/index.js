@@ -24,6 +24,19 @@ $( document ).ready(function() {
 
     }, 600)
 
+    var _changeInterval = null;
+    $('body').on("mousemove",function() {
+        // wait untill user type in something
+        // Don't let call setInterval - clear it, user is still typing
+        clearInterval(_changeInterval)
+        _changeInterval = setInterval(function() {
+            // Typing finished, now you can Do whatever after 2 sec
+            clearInterval(_changeInterval)
+            $(".toolbar").hide()
+        }, 2000);
+        $(".toolbar").show()
+    })
+
     $(".goToAngButton").on("click", function() {
         var _ang = parseInt($(".angNoInput").val());
         if (!isNaN(_ang) && _ang > 0 && _ang <= 1430) {

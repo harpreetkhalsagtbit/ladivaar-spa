@@ -277,6 +277,18 @@ h1 {
   color: #F9F8F8;
 }
 
+.toolbar {
+  position: absolute;
+  top:90%;
+  left:90%;
+  width:100px;
+  height: 100px;
+}
+
+li {
+  list-style: none;
+}
+
 /*
 animation button - breathing
 */
