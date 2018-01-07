@@ -29,16 +29,40 @@ $( document ).ready(function() {
     }, 600)
 
     var _changeInterval = null;
+    var mouseout = true;
     $('body').on("mousemove",function() {
         // wait untill user type in something
         // Don't let call setInterval - clear it, user is still typing
         clearInterval(_changeInterval)
-        _changeInterval = setInterval(function() {
-            // Typing finished, now you can Do whatever after 2 sec
-            clearInterval(_changeInterval)
-            $(".toolbar").hide()
-        }, 2000);
-        $(".toolbar").show()
+        if(mouseout) {
+            _changeInterval = setInterval(function() {
+                // Typing finished, now you can Do whatever after 2 sec
+                clearInterval(_changeInterval)
+                $(".toolbar").hide()
+            }, 2000);
+            $(".toolbar").show()
+        }
+    })
+    
+    // $('.guru_granth_sahib_baani').on("mousemove",function() {
+    //     $(".tatkra").removeClass("tatkra_hover")
+    //     window.location.hash = "ang/" + (window.angNo+1);
+    // });
+    
+    $(".toolbar").on("mouseenter mouseup hover", function() {
+        mouseout = false;
+    })
+
+    $(".toolbar").on("mouseout", function() {
+        mouseout = true;
+    })
+
+    $(".homeButton").on("click", function() {
+        $(".tatkra").removeClass("tatkra_hover")
+    })
+
+    $(".tatkraButton").on("click", function() {
+        $(".tatkra").toggleClass("tatkra_hover")
     })
 
     $(".goToAngButton").on("click", function() {
@@ -72,9 +96,9 @@ $( document ).ready(function() {
             $(".leftHandle").hide();
         } else if (window.location.hash == "#tatkra") {
             $(".tatkra").addClass("tatkra_hover")
-            $(".guru_granth_sahib_baani").hide();
-            $(".rightHandle").hide();
-            $(".leftHandle").hide();        
+            // $(".guru_granth_sahib_baani").hide();
+            // $(".rightHandle").hide();
+            // $(".leftHandle").hide();
         } else if (window.location.hash.match(/\d{1,4}$/)) {
             $(".tatkra").removeClass("tatkra_hover")
             $(".guru_granth_sahib_baani").show();

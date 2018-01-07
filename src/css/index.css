@@ -57,14 +57,6 @@ body {
 	color:#39B1C6;
 }
 
-.english_title:hover {
-	color:#49E4FF;
-}
-
-.punjabi_title:hover {
-	color:#FF5EA5;
-}
-
 .eng_ladivaar {
 	color:#EC3F8C;
 }
@@ -97,9 +89,10 @@ h4 {
 	height: 100%;
 	width:70%;
 	float: left;
-	display: flex;
+  display: flex;
+  z-index: 100;
 	background-color: yellow;
-    transition: all ease 1.5s;
+  transition: all ease 1.5s;
 }
 
 .tatkra_handle {
@@ -148,10 +141,11 @@ h4 {
 }
 
 .goToAngButton {
-  width: 50px;
+  width: 80px;
   height: 30px;
   border-radius: 10px;
-  background-color: blue;
+  background-color: #EC3F8C;
+  border: solid 1px #EC3F8C;
   font-size: 20px;
   align-items: flex-end;
 }
@@ -165,8 +159,24 @@ h4 {
 	/* flex-direction: column; */
 }
 
+.tatkra_container td {
+  padding-right: 15px;
+}
 .tatkaraHeading {
   font-size: 28px;
+  color: #EC3F8C;
+}
+
+.tatkaraSubHeading {
+  color: #EC3F8C;
+}
+
+.tatkaraItems {
+  color:#39B1C6;
+}
+
+.tatkaraItems:hover {
+  text-decoration: underline;
 }
 
 .tatkra_body .firstCol {
@@ -283,6 +293,7 @@ h1 {
   left:92%;
   width:60px;
   height: 60px;
+  z-index: 200;
 }
 
 li {
