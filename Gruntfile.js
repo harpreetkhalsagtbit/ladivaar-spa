@@ -276,12 +276,11 @@ module.exports = function(grunt) {
 						baani:[]
 					};			
 				}
-				console.log(panktiObj)
-        	} else if(_sggsJson[i]["arrayOfPankti"]) {
+
+			} else if(_sggsJson[i]["arrayOfPankti"]) {
         		var _newPankti = true;
 				var _noXML_Preserve = false;
         		for(var j=0;j<_sggsJson[i]["arrayOfPankti"].length;j++) {
-					console.log("iiii", i)
 					panktiObj = {}
         			if(_sggsJson[i]["arrayOfPankti"][j]["bold_Pankti"]) {
 		        		// _ang += _startH_Tag + _sggsJson[i]["arrayOfPankti"][j]["bold_Pankti"] + _endH_Tag
@@ -317,7 +316,6 @@ module.exports = function(grunt) {
         			}
 	        		if(_sggsJson[i]["arrayOfPankti"][j]["pageBreak"]) {
 						_ang += _endSection
-						console.log(obj.length, obj)
 	        			// _ang = _ang.replace("{{_id}}", _sggsJson[i]["arrayOfPankti"][j]["ang"])
 						// gurbani.push(obj)
 						obj["ang"] = _sggsJson[i]["arrayOfPankti"][j]["ang"];
@@ -337,7 +335,6 @@ module.exports = function(grunt) {
     			_ang = '';
         	}
 		}
-		console.log(gurbani)
         fs.writeFileSync('src/js/output.js', "var data = " + JSON.stringify(gurbani, null, 4));
  	});
 
