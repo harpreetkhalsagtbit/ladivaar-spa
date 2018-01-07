@@ -92,7 +92,8 @@ h4 {
 .tatkra {
 	position: absolute;
 	top: 0px;
-	left: 95%;
+  /* left:30%; */
+  left: 95%;
 	height: 100%;
 	width:70%;
 	float: left;
@@ -109,18 +110,129 @@ h4 {
 	align-items: center;
 }
 
-.tatkra:hover{
-	background-color: pink;
+.tatkra_hover{
+	/* background-color: pink; */
 	left:30%;
-    transition: all ease 1.5s;
+  transition: all ease 1.5s;
 }
 
 .tatkra_body {
 	background-color: #e8e8e8;
 	width: 95%;
 	overflow-y: scroll;
-	display:flex;
-	flex-direction: column;
+}
+
+.angNoContainer {
+  width: 100%;
+  height: 100px;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.angNoInput {
+  height: 30px;
+  width:50px;
+  border: none;
+	background-color: #e8e8e8;
+  border-bottom: 2px solid black;
+  font-size: 22px;
+  text-align: center;
+}
+
+.angLabel {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 25px;
+}
+
+.goToAngButton {
+  width: 50px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: blue;
+  font-size: 20px;
+  align-items: flex-end;
+}
+
+.tatkra_container {
+  display:flex;
+  justify-content: space-between;
+  font-size: 22px;
+  color: #2719e2;
+  padding: 40px;
+	/* flex-direction: column; */
+}
+
+.tatkaraHeading {
+  font-size: 28px;
+}
+
+.tatkra_body .firstCol {
+  padding-top: 20px;
+}
+
+.guru_granth_sahib_baani {
+  position: absolute;
+  top:0px;
+  width:100%;
+  height: 100%;
+  background-color: red;
+}
+
+.list-group-center-on-next{
+  transform:translateX(0%);
+  transition: all ease 0.6s;
+}
+
+.list-group-left-on-next{
+  transform:translateX(-100%);
+  transition: all ease 0.6s;
+}
+
+.list-group-right-on-next{
+  transform:translateX(100%);
+/*     transition: all ease 0.6s; */
+}
+
+.list-group-center-on-prev{
+  transform:translateX(0%);
+  transition: all ease 0.6s;
+}
+
+.list-group-left-on-prev{
+  transform:translateX(-100%);
+/*     transition: all ease 0.6s; */
+}
+
+.list-group-right-on-prev{
+  transform:translateX(100%);
+  transition: all ease 0.6s;
+}
+
+.main_screen_listX {
+  position: absolute;
+  top:0px;
+  height:100%;
+  width:100%;
+  overflow:auto;
+}
+
+.tatkra_listX {
+  position: absolute;
+  top:0px;
+  height:100%;
+  width:100%;
+  overflow:auto;
+}
+
+.nitnem_listX {
+  position: absolute;
+  top:0px;
+  height:100%;
+  width:100%;
+  overflow:auto;
 }
 
 /*
@@ -187,4 +299,17 @@ animation button - breathing
     -ms-transform: scale(0.9);
     transform: scale(0.9);
   }
+}
+
+.angNoInput ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: pink;
+}
+.angNoInput ::-moz-placeholder { /* Firefox 19+ */
+  color: pink;
+}
+.angNoInput :-ms-input-placeholder { /* IE 10+ */
+  color: pink;
+}
+.angNoInput :-moz-placeholder { /* Firefox 18- */
+  color: pink;
 }

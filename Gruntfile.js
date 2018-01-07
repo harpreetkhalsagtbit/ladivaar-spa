@@ -243,8 +243,106 @@ module.exports = function(grunt) {
 		fs.writeFileSync(path.normalize("www/index.html"), html);
 	});
 
+	grunt.registerTask('htmlJsonConversion', function() {
+        var _sggsJson = JSON.parse(fs.readFileSync('src/js/SGGS.json').toString());
+        var _startSection = "<section id='{{_id}}' data-background='#FFFFFF'>"
+        var _endSection = "</section>"
+        var _startH_Tag = "<h1>"
+        var _endH_Tag = "</h1>\n"
+        var _startP_Tag = "<p><strong>"
+        var _endP_Tag = "</strong></p>\n"
+
+    	var _ang = '';
+		var obj = {
+			baani:[]
+		};
+		var gurbani = [];
+        for(var i=0;i<_sggsJson.length;i++) {
+        	// if(_ang.baani.length) {
+        	// 	_ang.baani.splice(0);
+			// }
+			var panktiObj = {}
+        	if(_sggsJson[i]["bold_Pankti"]) {
+				// _ang += _startH_Tag + _sggsJson[i]["bold_Pankti"] + _endH_Tag
+				panktiObj["bold"] = true;
+				panktiObj["baani_content"] = _sggsJson[i]["bold_Pankti"];
+				obj["baani"].push(panktiObj);
+        		if(_sggsJson[i]["pageBreak"]) {
+        			// _ang += _endSection;
+					// _ang = _ang.replace("{{_id}}", _sggsJson[i]["ang"])
+					obj["ang"] = _sggsJson[i]["ang"];
+					gurbani.push(JSON.parse(JSON.stringify(obj)));
+					obj = {
+						baani:[]
+					};			
+				}
+				console.log(panktiObj)
+        	} else if(_sggsJson[i]["arrayOfPankti"]) {
+        		var _newPankti = true;
+				var _noXML_Preserve = false;
+        		for(var j=0;j<_sggsJson[i]["arrayOfPankti"].length;j++) {
+					console.log("iiii", i)
+					panktiObj = {}
+        			if(_sggsJson[i]["arrayOfPankti"][j]["bold_Pankti"]) {
+		        		// _ang += _startH_Tag + _sggsJson[i]["arrayOfPankti"][j]["bold_Pankti"] + _endH_Tag
+						panktiObj["bold"] = true;
+						panktiObj["baani_content"] = _sggsJson[i]["arrayOfPankti"][j]["bold_Pankti"];
+						obj["baani"].push(panktiObj);
+					} else if(_sggsJson[i]["arrayOfPankti"][j]["pankti"]) {
+        				if(_sggsJson[i]["arrayOfPankti"][j]["tab"] && j != 0) {
+        					// _ang = _ang.substring(0, _ang.length - _endP_Tag.length)
+			        		// _ang += "&nbsp&nbsp&nbsp&nbsp" + _sggsJson[i]["arrayOfPankti"][j]["pankti"] + _endP_Tag
+							panktiObj["tab"] = true;
+							panktiObj["baani_content"] = "&nbsp&nbsp&nbsp&nbsp" + _sggsJson[i]["arrayOfPankti"][j]["pankti"];
+							obj["baani"].push(panktiObj);	
+						} else if(_sggsJson[i]["arrayOfPankti"][j]["noXML_Preserve"] && j != 0) {
+        					// _ang = _ang.substring(0, _ang.length - _endP_Tag.length)
+			        		// _ang += _sggsJson[i]["arrayOfPankti"][j]["pankti"] + _endP_Tag
+			        		// _noXML_Preserve = true;
+							panktiObj["baani_content"] = _sggsJson[i]["arrayOfPankti"][j]["pankti"];
+							panktiObj["tab"] = true;
+							obj["baani"].push(panktiObj);	
+						} else {
+        					if(_noXML_Preserve) {
+	        					_ang = _ang.substring(0, _ang.length - _endP_Tag.length)
+				        		_ang += _sggsJson[i]["arrayOfPankti"][j]["pankti"] + _endP_Tag
+				        		_noXML_Preserve = false;
+								panktiObj["tab"] = true;
+        					} else {
+				        		_ang += _startP_Tag + _sggsJson[i]["arrayOfPankti"][j]["pankti"] + _endP_Tag
+        					}
+							panktiObj["baani_content"] = _sggsJson[i]["arrayOfPankti"][j]["pankti"];
+							obj["baani"].push(panktiObj);	
+        				}
+        			}
+	        		if(_sggsJson[i]["arrayOfPankti"][j]["pageBreak"]) {
+						_ang += _endSection
+						console.log(obj.length, obj)
+	        			// _ang = _ang.replace("{{_id}}", _sggsJson[i]["arrayOfPankti"][j]["ang"])
+						// gurbani.push(obj)
+						obj["ang"] = _sggsJson[i]["arrayOfPankti"][j]["ang"];
+						gurbani.push(JSON.parse(JSON.stringify(obj)));
+						obj = {
+							baani:[]
+						};	
+					}
+	        		_newPankti = false;
+        		}
+        	}
+        	if(i == _sggsJson.length) {
+        		// No page break at last
+    			_ang += _endSection
+    			_ang = _ang.replace("{{_id}}", "1430")
+    			// _arrayAngs.push(_ang)
+    			_ang = '';
+        	}
+		}
+		console.log(gurbani)
+        fs.writeFileSync('src/js/output.js', JSON.stringify(gurbani, null, 4));
+ 	});
+
 	require('load-grunt-tasks')(grunt);
 
 	// Default task(s).
-	grunt.registerTask('default', ['generateHTML']);
+	grunt.registerTask('default', ['htmlJsonConversion']);
 };
