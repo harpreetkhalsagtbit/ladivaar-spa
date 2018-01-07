@@ -24,6 +24,14 @@ $( document ).ready(function() {
 
     }, 600)
 
+    $(".goToAngButton").on("click", function() {
+        var _ang = parseInt($(".angNoInput").val());
+        if (!isNaN(_ang) && _ang > 0 && _ang <= 1430) {
+            window.location.hash = "ang_" + _ang
+        }
+        $(".angNoInput").val("")
+    })
+
     $(window).on('hashchange load', function() {
         console.log("haschange", window.location.hash)
         // hack
