@@ -10,25 +10,32 @@ $( document ).ready(function() {
             ang--;
             window.angNo = ang;
             console.log(window.angNo)
+            var _angData = data[window.angNo];
+            var _baani = _angData.baani
+                // baani_container
+            let center = $(".list-group-center-on-next").length?$(".list-group-center-on-next"):$(".list-group-center-on-prev")
+            ladivaarGenerator(_baani, center, false)
+            // $(".title").html("ਅੰਗ - " + (window.angNo + 1) + "/1430")
+            
+            // $("#angNo").html("ਅੰਗ - " + (window.angNo + 1) + "/1430")    
+        } else {
+            $(".guru_granth_sahib_baani").hide();
         }
 
-        var _angData = data[window.angNo];
-        var _baani = _angData.baani
-            // baani_container
-        let center = $(".list-group-center-on-next").length?$(".list-group-center-on-next"):$(".list-group-center-on-prev")
-        ladivaarGenerator(_baani, center, false)
-        // $(".title").html("ਅੰਗ - " + (window.angNo + 1) + "/1430")
-        
-        // $("#angNo").html("ਅੰਗ - " + (window.angNo + 1) + "/1430")
     }, 600)
 
     $(window).on('hashchange', function() {
         console.log("haschange", window.location.hash)
+        // hack
+        $(".nitnem_listX").css("display", "none");
         if (window.location.hash == "") {
             $(".tatkra").removeClass("tatkra_hover")
+            $(".guru_granth_sahib_baani").hide();
         } else if (window.location.hash == "#tatkra") {
             $(".tatkra").addClass("tatkra_hover")
         } else if (window.location.hash.match(/\d{1,4}$/)) {
+            $(".tatkra").removeClass("tatkra_hover")
+            $(".guru_granth_sahib_baani").show();
             var ang = window.location.hash.match(/\d{1,4}$/);
             if(ang && ang.length) {
                 ang--;
@@ -39,7 +46,8 @@ $( document ).ready(function() {
             var _baani = _angData.baani
                 // baani_container
             let center = $(".list-group-center-on-next").length?$(".list-group-center-on-next"):$(".list-group-center-on-prev")
-            ladivaarGenerator(_baani, center, false)
+            ladivaarGenerator(_baani, center, false);
+            $(".nitnem_listX").show();
         }
     });
 
@@ -52,7 +60,6 @@ $( document ).ready(function() {
         // baani_container
         var _htmlString = "";
         var _paragraphStringHTMLArr = [];
-        console.log(baani)
         if (baani) {
             for (var i = 0; i < baani.length; i++) {
                 var _paragraphsStr = null;
@@ -70,7 +77,7 @@ $( document ).ready(function() {
                     for (var paragraph = 0; paragraph < _paragraphsArr.length; paragraph++) {
                         var _wordsArr = _paragraphsArr[paragraph].split(/\s+/g);
                         if (_wordsArr.length) {
-                            if (baani[i].bold || baani[i].tab) {
+                            if (baani[i].bold) {
                                 _paragraphStringHTMLArr.push("<h1 class='text-center'><span>" + _wordsArr.join("</span><span>") + "</span></h1>")
                             } else {
                                 _paragraphStringHTMLArr.push("<p class='text-center'><span>" + _wordsArr.join("</span><span>") + "</span></p>")
@@ -85,7 +92,7 @@ $( document ).ready(function() {
                     }
                 }
             }
-            _htmlString = "<div class='baaniFormatting'>" + _paragraphStringHTMLArr.join("</div><div class='baaniFormatting'>") + "</div>"
+            _htmlString = "<div class='angContainer'><div class='baaniFormatting'>" + _paragraphStringHTMLArr.join("</div><div class='baaniFormatting'>") + "</div></div>"
             // console.log(_htmlString)
             $(element).html(_htmlString)
             setTimeout(function() {

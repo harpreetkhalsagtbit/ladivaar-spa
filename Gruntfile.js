@@ -292,16 +292,16 @@ module.exports = function(grunt) {
         				if(_sggsJson[i]["arrayOfPankti"][j]["tab"] && j != 0) {
         					// _ang = _ang.substring(0, _ang.length - _endP_Tag.length)
 			        		// _ang += "&nbsp&nbsp&nbsp&nbsp" + _sggsJson[i]["arrayOfPankti"][j]["pankti"] + _endP_Tag
-							panktiObj["tab"] = true;
-							panktiObj["baani_content"] = "&nbsp&nbsp&nbsp&nbsp" + _sggsJson[i]["arrayOfPankti"][j]["pankti"];
-							obj["baani"].push(panktiObj);	
+							// panktiObj["tab"] = true;
+							// panktiObj["baani_content"] = "&nbsp&nbsp&nbsp&nbsp" + _sggsJson[i]["arrayOfPankti"][j]["pankti"];
+							// obj["baani"].push(panktiObj);	
+							obj["baani"][obj["baani"].length - 1]["baani_content"] += "&nbsp&nbsp&nbsp&nbsp" + _sggsJson[i]["arrayOfPankti"][j]["pankti"];
 						} else if(_sggsJson[i]["arrayOfPankti"][j]["noXML_Preserve"] && j != 0) {
         					// _ang = _ang.substring(0, _ang.length - _endP_Tag.length)
 			        		// _ang += _sggsJson[i]["arrayOfPankti"][j]["pankti"] + _endP_Tag
 			        		// _noXML_Preserve = true;
-							panktiObj["baani_content"] = _sggsJson[i]["arrayOfPankti"][j]["pankti"];
-							panktiObj["tab"] = true;
-							obj["baani"].push(panktiObj);	
+							obj["baani"][obj["baani"].length - 1]["baani_content"] += _sggsJson[i]["arrayOfPankti"][j]["pankti"];
+							// obj["baani"].push(panktiObj);	
 						} else {
         					if(_noXML_Preserve) {
 	        					_ang = _ang.substring(0, _ang.length - _endP_Tag.length)
@@ -338,7 +338,7 @@ module.exports = function(grunt) {
         	}
 		}
 		console.log(gurbani)
-        fs.writeFileSync('src/js/output.js', JSON.stringify(gurbani, null, 4));
+        fs.writeFileSync('src/js/output.js', "var data = " + JSON.stringify(gurbani, null, 4));
  	});
 
 	require('load-grunt-tasks')(grunt);

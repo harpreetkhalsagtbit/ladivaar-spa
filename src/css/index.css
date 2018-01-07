@@ -178,7 +178,7 @@ h4 {
   top:0px;
   width:100%;
   height: 100%;
-  background-color: red;
+  background-color: #32313B;
 }
 
 .list-group-center-on-next{
@@ -232,7 +232,49 @@ h4 {
   top:0px;
   height:100%;
   width:100%;
-  overflow:auto;
+  /* overflow:auto; */
+
+  /*hack*/
+  display: none;
+}
+
+.baaniFormatting {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* padding: 5px; */
+}
+
+.angContainer {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  /* height: 100%; */
+}
+
+.text-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+p {
+  font-size: 26px;
+  color: #39B1C6;
+}
+
+h1 {
+  color: #EC3F8C;
+  /* font-size: 32px; */
+}
+
+.highlightH1 {
+  color: #F9F8F8;
+}
+
+.highlightP {
+  color: #F9F8F8;
 }
 
 /*
