@@ -1,0 +1,24 @@
+{
+  "name": "ladivaar-spa",
+  "version": "1.0.0",
+  "description": "Ladivaar.com Single Page Web App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harpreetkhalsagtbit/ladivaar-spa.git"
+  },
+  "author": "harpreetkhalsagtbit@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harpreetkhalsagtbit/ladivaar-spa/issues"
+  },
+  "homepage": "https://github.com/harpreetkhalsagtbit/ladivaar-spa#readme",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "handlebars": "^4.0.11",
+    "load-grunt-tasks": "^3.5.2"
+  }
+}
