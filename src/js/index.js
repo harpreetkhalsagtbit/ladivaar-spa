@@ -24,7 +24,7 @@ $( document ).ready(function() {
 
     }, 600)
 
-    $(window).on('hashchange', function() {
+    $(window).on('hashchange load', function() {
         console.log("haschange", window.location.hash)
         // hack
         $(".nitnem_listX").css("display", "none");
@@ -33,6 +33,7 @@ $( document ).ready(function() {
             $(".guru_granth_sahib_baani").hide();
         } else if (window.location.hash == "#tatkra") {
             $(".tatkra").addClass("tatkra_hover")
+            $(".guru_granth_sahib_baani").hide();
         } else if (window.location.hash.match(/\d{1,4}$/)) {
             $(".tatkra").removeClass("tatkra_hover")
             $(".guru_granth_sahib_baani").show();
