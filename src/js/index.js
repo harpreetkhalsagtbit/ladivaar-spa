@@ -41,20 +41,19 @@ $( document ).ready(function() {
 
     var _changeInterval = null;
     var mouseout = true;
-    // $('body, tatkra').on("mousemove",function() {
-    //     // wait untill user type in something
-    //     // Don't let call setInterval - clear it, user is still typing
-    //     clearInterval(_changeInterval)
-    //     if(mouseout) {
-    //         _changeInterval = setInterval(function() {
-    //             // Typing finished, now you can Do whatever after 2 sec
-    //             clearInterval(_changeInterval)
-    //             $(".toolbar").hide()
-    //         }, 2000);
-    //         $(".toolbar").show()
-    //     }
-    // })
-                $(".toolbar").show()
+    $('body, tatkra').on("mousemove",function() {
+        // wait untill user type in something
+        // Don't let call setInterval - clear it, user is still typing
+        clearInterval(_changeInterval)
+        if(mouseout) {
+            _changeInterval = setInterval(function() {
+                // Typing finished, now you can Do whatever after 2 sec
+                clearInterval(_changeInterval)
+                $(".toolbar").hide()
+            }, 2000);
+            $(".toolbar").show()
+        }
+    })
     
     $(".flex-container").on("click", function() {
         $(".tatkra").removeClass("tatkra_hover")
