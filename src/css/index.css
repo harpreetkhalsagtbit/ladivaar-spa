@@ -268,6 +268,16 @@ li {
   left: 93%;
   cursor: pointer;
 }
+.bookmark {
+  position: absolute;
+  top: -1%;
+  left: 91%;
+  color: red;
+}
+.bookmark strong {
+  color: #171233;
+  font-size: 30px;
+}
 .tatkraButton {
   cursor: pointer;
 }

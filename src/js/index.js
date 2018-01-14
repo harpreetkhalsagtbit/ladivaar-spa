@@ -30,6 +30,7 @@ $( document ).ready(function() {
             // baani_container
             let center = $(".list-group-center-on-next").length?$(".list-group-center-on-next"):$(".list-group-center-on-prev")
             ladivaarGenerator(_baani, center, false)
+            $(".bookmark strong").html(window.angNo + 1)
             // $(".title").html("ਅੰਗ - " + (window.angNo + 1) + "/1430")
             
             // $("#angNo").html("ਅੰਗ - " + (window.angNo + 1) + "/1430")    
@@ -149,6 +150,7 @@ $( document ).ready(function() {
                     // baani_container
                 let center = $(".list-group-center-on-next").length?$(".list-group-center-on-next"):$(".list-group-center-on-prev")
                 ladivaarGenerator(_baani, center, false);
+                $(".bookmark strong").html(window.angNo + 1)
                 $(".nitnem_listX").show();
             }
         }
@@ -241,6 +243,7 @@ $( document ).ready(function() {
         setTimeout(function() {
             window.angNo++;
             window.location.hash="ang/" + (window.angNo + 1)
+            $(".bookmark strong").html(window.angNo + 1)
             // $(".title").html("ਅੰਗ - " + (window.angNo + 1) + "/1430")
             
             // $("#angNo").html("ਅੰਗ - " + (window.angNo + 1) + "/1430")
@@ -260,6 +263,7 @@ $( document ).ready(function() {
         setTimeout(function() {
             window.angNo--;
             window.location.hash="ang/" + (window.angNo + 1)
+            $(".bookmark strong").html(window.angNo + 1)
         }, 600)
     }
 });
