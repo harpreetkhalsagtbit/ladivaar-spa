@@ -19,10 +19,18 @@ $( document ).ready(function() {
                 window.location.hash = "ang/" + 1
             }
         } else {
-            window.location.hash = "ang/" + 1
+            if (window.location.hash == "") {
+                $(".tatkra").removeClass("tatkra_hover")
+                $(".guru_granth_sahib_baani").hide();
+                $(".rightHandle").hide();
+                $(".leftHandle").hide();
+                $(".bookmark strong").html("")
+            } else {
+                window.location.hash = "ang/" + 1
+            }
         }
-
-        if(ang < 1430 && ang >= 0) {
+        console.log("ang", ang)
+        if(ang < 1430 && ang >= 0 && ang != null) {
             window.angNo = ang;
 
             var _angData = data[window.angNo];
@@ -121,24 +129,23 @@ $( document ).ready(function() {
             if(ang < 0) {
                 window.location.hash = "ang/" + 1
             }
-        } else {
-            window.location.hash = "ang/" + 1
         }
 
-        if(ang < 1430 && ang >= 0) {
-            // hack
-            $(".nitnem_listX").css("display", "none");
-            if (window.location.hash == "") {
-                $(".tatkra").removeClass("tatkra_hover")
-                $(".guru_granth_sahib_baani").hide();
-                $(".rightHandle").hide();
-                $(".leftHandle").hide();
-            } else if (window.location.hash == "#tatkra") {
-                $(".tatkra").addClass("tatkra_hover")
-                // $(".guru_granth_sahib_baani").hide();
-                // $(".rightHandle").hide();
-                // $(".leftHandle").hide();
-            } else if (window.location.hash.match(/\d{1,4}$/)) {
+        // hack
+        $(".nitnem_listX").css("display", "none");
+        if (window.location.hash == "") {
+            $(".tatkra").removeClass("tatkra_hover")
+            $(".guru_granth_sahib_baani").hide();
+            $(".rightHandle").hide();
+            $(".leftHandle").hide();
+            $(".bookmark strong").html("")
+        } else if (window.location.hash == "#tatkra") {
+            $(".tatkra").addClass("tatkra_hover")
+            // $(".guru_granth_sahib_baani").hide();
+            // $(".rightHandle").hide();
+            // $(".leftHandle").hide();
+        } else if (window.location.hash.match(/\d{1,4}$/)) {
+            if(ang < 1430 && ang >= 0 && ang != null) {
                 $(".tatkra").removeClass("tatkra_hover")
                 $(".guru_granth_sahib_baani").show();
                 $(".rightHandle").show()
