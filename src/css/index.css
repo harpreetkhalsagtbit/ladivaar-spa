@@ -259,13 +259,13 @@ li {
 .leftHandle {
   position: absolute;
   top: 47%;
-  left: 1%;
+  left: 2%;
   cursor: pointer;
 }
 .rightHandle {
   position: absolute;
   top: 47%;
-  left: 95%;
+  left: 93%;
   cursor: pointer;
 }
 .tatkraButton {
