@@ -99,7 +99,7 @@ h4 {
   display: flex;
   z-index: 100;
 	background-color: yellow;
-  transition: all ease 1.5s;
+  transition: all ease 1s;
 }
 
 .tatkra_handle {
@@ -169,6 +169,7 @@ h4 {
 .tatkra_container td {
   padding-right: 15px;
 }
+
 .tatkaraHeading {
   font-size: 28px;
   color: @primaryColor;
@@ -186,7 +187,7 @@ h4 {
   text-decoration: underline;
 }
 
-.tatkra_body .firstCol {
+.tatkra_body .tatkra_col {
   padding-top: 20px;
 }
 
@@ -440,6 +441,10 @@ animation button - breathing
     font-size:2em;
   }
 
+  .bookmark strong {
+    font-size:20px;
+  }
+
   p {
     font-size: 12px;
   }
@@ -453,11 +458,15 @@ animation button - breathing
   }
 
   .toolbar {
-    left: 82%
+    left: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 88%;
   }
 
   .tatkra_container {
-    width: 85%;
+    width: 100%%;
     flex-direction: column;
   }
 
@@ -472,5 +481,18 @@ animation button - breathing
   tbody tr a {
     font-size:12px;
   }
+
+  .tatkra_col {
+    width: 100%;
+  }
+
+  .tatkra_body .tatkra_col {
+    padding-top: 0px;
+  }
+
+  .tatkra_container td {
+    padding-right: 0px;
+  }
+
 }
 
