@@ -359,7 +359,10 @@ animation button - breathing
     font-size: 20px;
   }
   .bookmark {
-    left: 75%;
+    left: 80%;
+  }
+  .bookmark span {
+    font-size: 2em;
   }
   p {
     font-size: 12px;
@@ -372,5 +375,18 @@ animation button - breathing
   }
   .toolbar {
     left: 82%;
+  }
+  .tatkra_container {
+    width: 85%;
+    flex-direction: column;
+  }
+  tbody tr p {
+    font-size: 20px;
+  }
+  .tatkra_container div p {
+    font-size: 20px;
+  }
+  tbody tr a {
+    font-size: 12px;
   }
 }
