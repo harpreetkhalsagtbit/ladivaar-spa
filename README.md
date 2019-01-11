@@ -8,3 +8,7 @@ Ladivaar.com Single Page Web App
 # iOS App
 
 [Download](https://itunes.apple.com/in/app/ladivaar/id1330309252?mt=8)
+
+# For queries  - FB Page
+
+https://www.facebook.com/ladivaardotcom
