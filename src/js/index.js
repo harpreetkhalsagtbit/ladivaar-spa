@@ -1,3 +1,4 @@
+import css from '../css/index.css';
 
 window.jQuery = window.$ = require('jquery');
 import Hammer from 'hammerjs'
@@ -8,8 +9,8 @@ $( document ).ready(function() {
         window.location.hash="tatkra";
     })
     $(".toolbar").hide()
-    // $(".rightHandle").hide()
-    // $(".leftHandle").hide()
+    $(".rightHandle").hide()
+    $(".leftHandle").hide()
 
     setTimeout(function() {
         var ang = window.location.hash.match(/\d{1,4}$/);
