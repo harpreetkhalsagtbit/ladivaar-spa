@@ -335,7 +335,7 @@ module.exports = function(grunt) {
     			_ang = '';
         	}
 		}
-        fs.writeFileSync('src/js/output.js', "var data = " + JSON.stringify(gurbani, null, 4));
+        fs.writeFileSync('src/js/output.js', "window.data = " + JSON.stringify(gurbani, null, 4));
  	});
 
 	require('load-grunt-tasks')(grunt);
