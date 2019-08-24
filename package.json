@@ -4,7 +4,8 @@
   "description": "Ladivaar.com Single Page Web App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,19 @@
   "homepage": "https://github.com/harpreetkhalsagtbit/ladivaar-spa#readme",
   "dependencies": {
     "grunt": "^1.0.1",
+    "hammerjs": "^2.0.8",
     "handlebars": "^4.0.11",
+    "jquery": "^3.4.1",
+    "jquery-hammerjs": "^2.0.0",
     "less": "^2.7.3",
     "load-grunt-tasks": "^3.5.2"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
   }
 }

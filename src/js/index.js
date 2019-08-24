@@ -1,4 +1,8 @@
-// A $( document ).ready() block.
+import css from '../css/index.css';
+
+window.jQuery = window.$ = require('jquery');
+import Hammer from 'hammerjs'
+
 $( document ).ready(function() {
     console.log( "ready!" );
     $("breathing-button").on("mousein", function() {
@@ -233,9 +237,15 @@ $( document ).ready(function() {
     }
     
     var resim = $(".swipe-gesture");
-    resim.hammer().on("swipeleft", swipeLeft);
 
-    resim.hammer().on("swiperight", swipeRight);
+    resim.map(function(index, element) {
+        var hammer    = new Hammer.Manager(element);
+        var swipe     = new Hammer.Swipe();
+        hammer.add(swipe);
+        hammer.on("swipeleft", swipeLeft);
+        hammer.on("swiperight", swipeRight);
+    })
+    
 
     function swipeLeft(ev) {
         var center = $(".list-group-center-on-next").length?$(".list-group-center-on-next"):$(".list-group-center-on-prev")
